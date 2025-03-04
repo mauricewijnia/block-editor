@@ -32,7 +32,7 @@ MISSING_PACKAGES=()
 for PACKAGE in ${PACKAGES[@]}; do
     FILE="$PACKAGE/package.json"
     if [[ -f $FILE ]]; then
-        VERSION=$(cat $FILE | egrep -o '"version": (".*")' | egrep -o '\d+\.\d+\.\d+')
+        VERSION=$(cat $FILE | egrep -o '"version": (".*")' | egrep -o '[0-9]+\.[0-9]+\.[0-9]+')
         PACKAGE_VERSION="\"@wordpress/$PACKAGE\": \"~$VERSION\","
         echo $PACKAGE_VERSION
     else
